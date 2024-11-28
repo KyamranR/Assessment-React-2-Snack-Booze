@@ -1,1 +1,3 @@
 .DS_Store
+/unroll/node_modules
+unroll/package-lock.json
