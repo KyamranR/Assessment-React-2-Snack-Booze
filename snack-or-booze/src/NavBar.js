@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
-import { Navbar, Nav, NavItem } from "reactstrap";
+import { Navbar, Nav } from "reactstrap";
 
 function NavBar() {
   return (
@@ -12,9 +12,9 @@ function NavBar() {
         </NavLink>
 
         <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink to="/snacks">Snacks</NavLink>
-          </NavItem>
+          <NavLink to="/snacks">Snacks</NavLink>
+          <NavLink to="/drinks">Drinks</NavLink>
+          <NavLink to="/add">Add Item</NavLink>
         </Nav>
       </Navbar>
     </div>
