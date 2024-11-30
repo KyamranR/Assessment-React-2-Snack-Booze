@@ -1,25 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
 import NavBar from "./NavBar";
-import { Route, Switch } from "react-router-dom";
-import Menu from "./FoodMenu";
-import Snack from "./FoodItem";
+import Menu from "./Menu";
+import Item from "./Item";
+import AddItemForm from "./AddItemForm";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [snacks, setSnacks] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
-    async function getSnacks() {
-      let snacks = await SnackOrBoozeApi.getSnacks();
-      setSnacks(snacks);
-      setIsLoading(false);
+    async function fetchData() {
+      try {
+        const snacks = await SnackOrBoozeApi.getSnacks();
+        const drinks = await SnackOrBoozeApi.getDrinks();
+        setSnacks(snacks);
+        setDrinks(drinks);
+      } catch (err) {
+        console.error("Failed to fetch data:", err);
+      } finally {
+        setIsLoading(false);
+      }
     }
-    getSnacks();
+    fetchData();
   }, []);
+
+  const addNewItem = async (type, item) => {
+    const newItem = await SnackOrBoozeApi.addItem(type, item);
+    if (type === "snacks") setSnacks((items) => [...items, newItem]);
+    if (type === "drinks") setDrinks((items) => [...items, newItem]);
+  };
 
   if (isLoading) {
     return <p>Loading &hellip;</p>;
@@ -32,13 +47,22 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              <Home snacks={snacks} />
+              <Home snacks={snacks} drinks={drinks} />
             </Route>
             <Route exact path="/snacks">
-              <Menu snacks={snacks} title="Snacks" />
+              <Menu items={snacks} title="Snacks" />
             </Route>
             <Route path="/snacks/:id">
-              <Snack items={snacks} cantFind="/snacks" />
+              <Item items={snacks} cantFind="/snacks" />
+            </Route>
+            <Route exact path="/drinks">
+              <Menu items={snacks} title="Drinks" />
+            </Route>
+            <Route path="/drinks/:id">
+              <Item items={drinks} cantFind="/drinks" />
+            </Route>
+            <Route path="/add">
+              <AddItemForm addNewItem={addNewItem} />
             </Route>
             <Route>
               <p>Hmmm. I can't seem to find what you want.</p>
