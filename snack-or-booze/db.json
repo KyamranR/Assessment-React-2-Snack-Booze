@@ -27,6 +27,20 @@
       "description": "Crisp!",
       "recipe": "Open can.",
       "serve": "Immediately."
+    },
+    {
+      "name": "Drink",
+      "description": "drink description",
+      "recipe": "drink recipe",
+      "serve": "drink serve",
+      "id": "MjbGC9n"
+    },
+    {
+      "name": "Drink",
+      "description": "drink description",
+      "recipe": "drink recipe",
+      "serve": "drink serve",
+      "id": "xCmMPeQ"
     }
   ],
   "snacks": [
@@ -50,6 +64,41 @@
       "description": "Tart and delicious.",
       "recipe": "Mix arugula, toasted walnuts, and thinly-sliced Parmesan cheese. Dress with lemon and olive oil.",
       "serve": "Place on tiny, precious little plates."
+    },
+    {
+      "name": "snack1",
+      "description": "snack description",
+      "recipe": "snack recipe",
+      "serve": "snack serve",
+      "id": "lYBk4w3"
+    },
+    {
+      "name": "snack2",
+      "description": "snack description",
+      "recipe": "snack recipe",
+      "serve": "snack serve",
+      "id": "Vst7g1Y"
+    },
+    {
+      "name": "Kyamran",
+      "description": "snack description",
+      "recipe": "snack recipe",
+      "serve": "snack serve",
+      "id": "tC6Jsp3"
+    },
+    {
+      "name": "snack3",
+      "description": "snack description",
+      "recipe": "snack recipe",
+      "serve": "snack serve",
+      "id": "I1d6llL"
+    },
+    {
+      "name": "snack4",
+      "description": "snack description",
+      "recipe": "snack recipe",
+      "serve": "snack serve",
+      "id": "pnMrbWc"
     }
   ]
 }
