@@ -99,6 +99,13 @@
       "recipe": "snack recipe",
       "serve": "snack serve",
       "id": "pnMrbWc"
+    },
+    {
+      "name": "Test Snack",
+      "description": "Testing snack",
+      "recipe": "Milk, spices, honey/sugar",
+      "serve": "2",
+      "id": "DoAzEos"
     }
   ]
 }
